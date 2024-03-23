@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* overflow: scroll; */
+  }
+  
+  ul ol {
+    list-style: none;
+  }
+  
+  li {
+    display: inline;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
