@@ -13,30 +13,29 @@
 </template>
 
 <style scope>
-    *{
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        box-sizing: border-box;
-    }
+    @import '../assets/base.css';
 
     .leftbar{
         width: 10%;
         height: 100vh;
-        border-right: #333 2px solid;
         background: #454545;
-        margin: 10px;
     }
 
     .list ul{
         list-style: none;
+        display: flex;
+        flex-direction: column;
     }
 
     .list ul li{
         padding: 30px 0px 30px 10px;
         color: #fff;
         cursor: pointer;
-        border-bottom: #333 2px solid;
+        border-bottom: rgb(202, 192, 192) 2px solid;
+        border-right: rgb(202, 192, 192) 2px solid;
+        border-radius: 0px 0px 10px 0px ;
+        border-top: none;
+        border-left: none;
     }
 
      .list ul li a{
@@ -46,5 +45,6 @@
 
     .list ul li:hover{
         background: #333;
- }
+        transition: all 0.3s;
+    }
 </style>
