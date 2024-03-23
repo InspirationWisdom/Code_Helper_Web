@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import index from '../index.vue'
+import h5c3 from '../h5c3.vue'
+import welcome from '../welcome.vue'
 
 
 const router = createRouter({
@@ -12,11 +13,19 @@ const router = createRouter({
         {
             path: "/home",
             name: "home",
-            component: index,
+            component: welcome,
             meta: {
-              title: "Main Page",
+              title: "Welcome Page",
             }
-        }
+        },
+        {
+            path: "/html",
+            name: "HTML",
+            component: h5c3,
+            meta: {
+              title: "HTML + CSS3 Page",
+            }
+        },
     ]
 })
 
