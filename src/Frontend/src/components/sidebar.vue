@@ -33,7 +33,7 @@
         cursor: pointer;
         border-bottom: rgb(202, 192, 192) 2px solid;
         border-right: rgb(202, 192, 192) 2px solid;
-        border-radius: 0px 0px 10px 0px ;
+        border-radius: 0px 0px 15px 0px ;
         border-top: none;
         border-left: none;
     }
