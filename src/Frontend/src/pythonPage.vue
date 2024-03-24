@@ -5,6 +5,10 @@
     const run = async () => {
         let pythonCode = document.getElementById('python-code').value;
         let outPut = document.getElementById('output');
+        if(pythonCode.trim() === ''){
+            alert('Please enter some code');
+            return;
+        }
 
         await axios.post('http://localhost:8080/executePython', {
             code: pythonCode
@@ -13,8 +17,14 @@
         }).catch((error) => {
             outPut.contentDocument.body.innerHTML = error;
         });
-
     }
+
+    const check = async () => {
+        let pythonCode = document.getElementById('python-code').value;
+        
+    }
+
+
 </script>
 
 <template>
@@ -30,7 +40,7 @@
         </div>
         <div class="right">
             <label for="output">Output</label>
-            <textarea id="output" srcdoc="" readonly></textarea>
+            <textarea id="output" srcdoc="" readonly wrap="off"></textarea>
         </div>
     </div>
 </template>
@@ -62,7 +72,7 @@
         border: 0;
         outline: 0;
         font-size: 18px;
-        overflow: scroll;
+        overflow: auto;
     }
 
     iframe{
