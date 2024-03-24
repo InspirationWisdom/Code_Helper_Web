@@ -17,13 +17,13 @@
     <leftbar/>
     <div class="left">
       <label for="html-code">HTML</label>
-      <textarea id="html-code" v-on:keyup="run()"></textarea>
+      <textarea id="html-code" v-on:keyup="run()"  wrap="off"></textarea>
 
       <label for="css-code">CSS</label>
-      <textarea id="css-code" v-on:keyup="run()"></textarea>
+      <textarea id="css-code" v-on:keyup="run()"  wrap="off"></textarea>
 
       <label for="js-code">JavaScript</label>
-      <textarea id="js-code" v-on:keyup="run()"></textarea>
+      <textarea id="js-code" v-on:keyup="run()"  wrap="off"></textarea>
     </div>
     <div class="right">
       <label for="output">Output</label>
@@ -59,7 +59,7 @@
     border: 0;
     outline: 0;
     font-size: 18px;
-
+    overflow: auto;
   }
 
   iframe{
