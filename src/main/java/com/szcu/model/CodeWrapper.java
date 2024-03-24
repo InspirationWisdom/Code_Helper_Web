@@ -1,2 +1,8 @@
-package com.szcu.model;public class CodeWrapper {
+package com.szcu.model;
+
+import lombok.Data;
+
+@Data
+public class CodeWrapper {
+	String code;
 }
