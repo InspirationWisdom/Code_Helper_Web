@@ -1,33 +1,46 @@
+package com.szcu.controller;
+
+import com.szcu.model.CodeWrapper;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-
-public class PythonCodeExecutionController {
+@RestController
+@CrossOrigin("*")
+public class PythonCodeController {
 
 	@PostMapping("/executePython")
-	public String executePythonCode(@RequestBody String pythonCode) {
+	@ResponseBody
+	public String executePythonCode(@RequestBody CodeWrapper codeWrapper) {
+		String code = codeWrapper.getCode();
 		ProcessBuilder processBuilder = new ProcessBuilder();
 		// Assuming Python is installed and in the system's PATH
-		processBuilder.command("python", "-c", pythonCode);
+		processBuilder.command("python3", "-c", code);
 
 		try {
 			Process process = processBuilder.start();
 			StringBuilder output = new StringBuilder();
-			BufferedReader reader = new BufferedReader(
-					new InputStreamReader(process.getInputStream()));
+			StringBuilder errors = new StringBuilder();
+
+			BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 
 			String line;
-			while ((line = reader.readLine()) != null) {
+			while ((line = stdInput.readLine()) != null) {
 				output.append(line).append("\n");
+			}
+
+			while ((line = stdError.readLine()) != null) {
+				errors.append(line).append("\n");
 			}
 
 			int exitVal = process.waitFor();
 			if (exitVal == 0) {
 				return output.toString();
 			} else {
-				// Handle the case where the script execution fails
-				return "Error in executing the script";
+				// Return error information if the script execution fails
+				return "Error in executing the script:\n\n" + errors.toString();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
