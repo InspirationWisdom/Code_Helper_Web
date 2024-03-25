@@ -4,6 +4,7 @@
 
     const run = async () => {
         let pythonCode = document.getElementById('python-code').value;
+        let pythonParams = document.getElementById('params').value;
         let outPut = document.getElementById('output');
         if(pythonCode.trim() === ''){
             alert('Please enter some code');
@@ -11,7 +12,8 @@
         }
 
         await axios.post('http://localhost:8080/executePython', {
-            code: pythonCode
+            code: pythonCode,
+            params: pythonParams
         }).then((response) => {
             outPut.innerHTML = response.data;
         }).catch((error) => {
@@ -33,6 +35,8 @@
         <div class="left">
             <label for="python-code">Python</label>
             <textarea id="python-code"></textarea>
+            <label for="params">Pamameters</label>
+            <textarea id="params"></textarea>
             <div class="button">
                 <button v-on:click="check()">Check Code</button>
                 <button v-on:click="run()">Run Code</button>
@@ -64,7 +68,7 @@
 
     textarea{
         width: 100%;
-        height: 88%;
+        height: 68%;
         background: #1f1f1f;
         color: #fff;
         font-family: Consolas, monospace;
@@ -73,6 +77,14 @@
         outline: 0;
         font-size: 18px;
         overflow: auto;
+    }
+
+    #params{
+        height: 10%;
+    }
+
+    #output{
+        height: 90%;
     }
 
     iframe{
