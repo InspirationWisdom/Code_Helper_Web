@@ -1,5 +1,6 @@
 <script setup>
   import leftbar from './components/sidebar.vue'
+  import banner from './components/banner.vue'
 
   function run(){
     let htmlCode = document.getElementById('html-code').value;
@@ -13,6 +14,7 @@
 </script>
 
 <template>
+  <banner/>
   <div class="container">
     <leftbar/>
     <div class="left">
@@ -36,7 +38,7 @@
   @import './assets/base.css';
 
   .container{
-    background: #454545;
+    background: whitesmoke;
     color: #fff;
     font-family: 'Poppins', sans-serif;
     width: 100%;
@@ -51,7 +53,7 @@
 
   textarea{
     width: 100%;
-    height: 28%;
+    height: 28vh;
     background: #1f1f1f;
     color: #fff;
     font-family: Consolas, monospace;
@@ -64,7 +66,7 @@
 
   iframe{
     width: 100%;
-    height: 95%;
+    height: 100vh;
     background: #fff;
     border: 0;
     outline: 0;

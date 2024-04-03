@@ -1,6 +1,7 @@
 <script setup>
     import leftbar from './components/sidebar.vue'
     import axios from 'axios'
+    import banner from './components/banner.vue'
 
     const run = async () => {
         let pythonCode = document.getElementById('python-code').value;
@@ -30,6 +31,7 @@
 </script>
 
 <template>
+    <banner/>
     <div class="container">
         <leftbar/>
         <div class="left">
@@ -53,11 +55,11 @@
     @import './assets/base.css';
 
     .container{
-        background: #454545;
+        background: whitesmoke;
         color: #fff;
         font-family: 'Poppins', sans-serif;
         width: 100%;
-        height: 100vh;
+        height: 87vh;
         display: flex;
     }
 
@@ -68,7 +70,7 @@
 
     textarea{
         width: 100%;
-        height: 68%;
+        height: 65%;
         background: #1f1f1f;
         color: #fff;
         font-family: Consolas, monospace;
