@@ -17,19 +17,19 @@
 
     .leftbar{
         width: 10%;
-        height: 100vh;
-        background: #454545;
+        height: 87vh;
+        background: whitesmoke;
     }
-
+    
     .list ul{
         list-style: none;
         display: flex;
         flex-direction: column;
     }
-
+    
     .list ul li{
+        color: black;
         padding: 30px 0px 30px 10px;
-        color: #fff;
         cursor: pointer;
         border-bottom: rgb(202, 192, 192) 2px solid;
         border-right: rgb(202, 192, 192) 2px solid;
@@ -40,11 +40,10 @@
 
      .list ul li a{
         text-decoration: none;
-        color: #fff;
     }
 
     .list ul li:hover{
-        background: #333;
+        background: white;
         transition: all 0.3s;
     }
 </style>
